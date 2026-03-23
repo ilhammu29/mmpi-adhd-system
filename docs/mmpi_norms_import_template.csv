@@ -1,0 +1,6 @@
+scale_code,gender,raw_score,t_score
+L,male,0,30
+L,male,1,35
+L,female,0,30
+D,male,20,57
+D,female,20,54

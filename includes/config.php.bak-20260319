@@ -1,0 +1,1158 @@
+<?php
+// includes/config.php
+// Database configuration and system settings
+
+// ============================================
+// APPLICATION ENVIRONMENT
+// ============================================
+define('APP_ENV', 'production');
+define('APP_DEBUG', APP_ENV !== 'production');
+
+// ============================================
+// ERROR REPORTING
+// ============================================
+ini_set('display_errors', APP_DEBUG ? '1' : '0');
+ini_set('display_startup_errors', APP_DEBUG ? '1' : '0');
+error_reporting(APP_DEBUG ? E_ALL : 0);
+
+// ============================================
+// SESSION CONFIGURATION
+// ============================================
+session_name('MMPI_SESSION');
+session_start();
+
+// ============================================
+// DATABASE CONFIGURATION
+// ============================================
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');          // Change this in production
+define('DB_PASS', '2624f5c3eb576de4');              // Change this in production
+define('DB_NAME', 'mmpi_adhd_db');
+define('DB_CHARSET', 'utf8mb4');
+
+// Tambahkan di includes/config.php
+
+
+// includes/config.php - Tambahkan:
+
+// Test Mode Configuration
+define('TEST_MODE', false);
+define('TEST_MODE_MESSAGE', 'Sistem dalam mode testing. Semua paket dapat diakses gratis.');
+
+// Payment Configuration
+define('PAYMENT_ENABLED', !TEST_MODE);
+define('PAYMENT_GATEWAY', 'manual'); // manual, midtrans, etc
+
+// ============================================
+// APPLICATION PATHS
+// ============================================
+$baseScheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$baseHost = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$basePath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/mmpi-adhd-system/index.php')), '/');
+if ($basePath === '' || $basePath === '.') {
+    $basePath = '';
+}
+if (substr($basePath, -6) === '/admin' || substr($basePath, -7) === '/client') {
+    $basePath = dirname($basePath);
+    $basePath = $basePath === '/' ? '' : rtrim($basePath, '/');
+}
+define('BASE_URL', $baseScheme . '://' . $baseHost . $basePath);
+define('ROOT_PATH', __DIR__ . '/../');
+define('ADMIN_PATH', ROOT_PATH . 'admin/');
+define('CLIENT_PATH', ROOT_PATH . 'client/');
+define('INCLUDES_PATH', ROOT_PATH . 'includes/');
+define('ASSETS_PATH', ROOT_PATH . 'assets/');
+define('UPLOADS_PATH', ROOT_PATH . 'assets/uploads/');
+
+// ============================================
+// APPLICATION SETTINGS
+// ============================================
+define('APP_NAME', 'MMPI & ADHD');
+define('APP_VERSION', '1.0.0');
+
+// Security
+define('SALT', '3489d328463c4d955efec6815bce34c7d59905b309ba83577d01b19659039a9d');
+define('JWT_SECRET', '636ff3386f9bd7a4ab29a61ea2c95ac5ffb66fc216cb1e9b7aed4e8226cd24f6');
+
+// File upload settings
+define('MAX_UPLOAD_SIZE', 10 * 1024 * 1024); // 10MB
+define('ALLOWED_IMAGE_TYPES', ['jpg', 'jpeg', 'png', 'gif']);
+define('ALLOWED_DOC_TYPES', ['pdf', 'doc', 'docx']);
+
+// Test settings
+define('DEFAULT_TEST_DURATION', 180); // minutes
+define('ITEMS_PER_PAGE', 20);
+define('SESSION_TIMEOUT', 60 * 60 * 2); // 2 hours
+
+
+// MMPI-2 Normative Data
+define('MMPI_NORMS', [
+    'male' => [
+        'L' => ['mean' => 5.1, 'sd' => 2.5],
+        'F' => ['mean' => 4.8, 'sd' => 5.0],
+        'K' => ['mean' => 13.4, 'sd' => 5.2],
+        'Hs' => ['mean' => 8.6, 'sd' => 5.1],
+        'D' => ['mean' => 18.9, 'sd' => 9.4],
+        'Hy' => ['mean' => 16.4, 'sd' => 7.8],
+        'Pd' => ['mean' => 16.8, 'sd' => 8.9],
+        'Mf' => ['mean' => 19.2, 'sd' => 7.2],
+        'Pa' => ['mean' => 9.8, 'sd' => 6.4],
+        'Pt' => ['mean' => 20.4, 'sd' => 10.1],
+        'Sc' => ['mean' => 19.9, 'sd' => 10.8],
+        'Ma' => ['mean' => 13.2, 'sd' => 6.9],
+        'Si' => ['mean' => 20.8, 'sd' => 8.4]
+    ],
+    'female' => [
+        'L' => ['mean' => 5.4, 'sd' => 2.7],
+        'F' => ['mean' => 5.5, 'sd' => 5.8],
+        'K' => ['mean' => 12.8, 'sd' => 5.1],
+        'Hs' => ['mean' => 9.1, 'sd' => 5.3],
+        'D' => ['mean' => 20.1, 'sd' => 10.0],
+        'Hy' => ['mean' => 17.9, 'sd' => 8.1],
+        'Pd' => ['mean' => 17.4, 'sd' => 9.2],
+        'Mf' => ['mean' => -2.28, 'sd' => 7.9],
+        'Pa' => ['mean' => 10.3, 'sd' => 6.7],
+        'Pt' => ['mean' => 21.8, 'sd' => 10.4],
+        'Sc' => ['mean' => 21.1, 'sd' => 11.1],
+        'Ma' => ['mean' => 13.7, 'sd' => 7.1],
+        'Si' => ['mean' => 27.08, 'sd' => 8.8]
+    ]
+]);
+// ============================================
+// DATABASE CONNECTION
+// ============================================
+class Database {
+    private static $instance = null;
+    private $connection;
+    
+    private function __construct() {
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+                PDO::ATTR_PERSISTENT         => false
+            ];
+            
+            $this->connection = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            die("Database connection failed: " . $e->getMessage());
+        }
+    }
+    
+    public static function getInstance() {
+        if (self::$instance == null) {
+            self::$instance = new Database();
+        }
+        return self::$instance->connection;
+    }
+}
+
+// ============================================
+// HELPER FUNCTIONS
+// ============================================
+
+/**
+ * Get database connection
+ */
+function getDB() {
+    return Database::getInstance();
+}
+
+/**
+ * Redirect to URL
+ */
+function redirect($url) {
+    header("Location: " . BASE_URL . $url);
+    exit();
+}
+
+/**
+ * Check if user is logged in
+ */
+function isLoggedIn() {
+    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+}
+
+/**
+ * Check if user is admin
+ */
+function isAdmin() {
+    return isLoggedIn() && $_SESSION['user_role'] === 'admin';
+}
+
+/**
+ * Check if user is client
+ */
+function isClient() {
+    return isLoggedIn() && $_SESSION['user_role'] === 'client';
+}
+
+/**
+ * Require login
+ */
+function requireLogin() {
+    if (!isLoggedIn()) {
+        $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+        redirect('/login.php');
+    }
+}
+
+/**
+ * Require admin access
+ */
+function requireAdmin() {
+    requireLogin();
+    if (!isAdmin()) {
+        $_SESSION['error'] = "Akses ditolak. Hanya untuk administrator.";
+        redirect('/client/dashboard.php');
+    }
+}
+
+/**
+ * Require client access
+ */
+function requireClient() {
+    requireLogin();
+    if (!isClient()) {
+        $_SESSION['error'] = "Akses ditolak. Hanya untuk klien.";
+        redirect('/admin/dashboard.php');
+    }
+}
+
+/**
+ * Generate CSRF token
+ */
+function generateCSRFToken() {
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Validate CSRF token
+ */
+function validateCSRFToken($token) {
+    if (empty($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $token)) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Sanitize input
+ */
+function sanitize($data) {
+    if (is_array($data)) {
+        return array_map('sanitize', $data);
+    }
+    
+    // Perbaikan: Cek null dan non-string values
+    if ($data === null) {
+        return '';
+    }
+    
+    if (!is_string($data)) {
+        return $data;
+    }
+    
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    return $data;
+}
+
+/**
+ * Escape output for HTML
+ */
+function escape($data) {
+    if (is_array($data)) {
+        return array_map('escape', $data);
+    }
+    
+    // Perbaikan: Cek null dan non-string values
+    if ($data === null) {
+        return '';
+    }
+    
+    if (!is_string($data)) {
+        return $data;
+    }
+    
+    return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+}
+
+/**
+ * Get a value from array with default
+ */
+function getValue($array, $key, $default = '') {
+    return isset($array[$key]) ? $array[$key] : $default;
+}
+
+function safeTrim($data) {
+    if ($data === null) {
+        return '';
+    }
+    
+    if (is_string($data)) {
+        return trim($data);
+    }
+    
+    if (is_numeric($data)) {
+        return trim((string)$data);
+    }
+    
+    if (is_bool($data)) {
+        return $data ? '1' : '0';
+    }
+    
+    return '';
+}
+
+/**
+ * Safe string length check
+ */
+function safeStrlen($data) {
+    if ($data === null) {
+        return 0;
+    }
+    
+    if (is_string($data)) {
+        return strlen($data);
+    }
+    
+    if (is_numeric($data)) {
+        return strlen((string)$data);
+    }
+    
+    return 0;
+}
+
+/**
+ * Safe empty check (PHP 8.1+ compatible)
+ */
+function safeEmpty($data) {
+    if ($data === null) {
+        return true;
+    }
+    
+    if (is_string($data)) {
+        return trim($data) === '';
+    }
+    
+    if (is_array($data)) {
+        return count($data) === 0;
+    }
+    
+    if (is_numeric($data)) {
+        return false;
+    }
+    
+    if (is_bool($data)) {
+        return false;
+    }
+    
+    return empty($data);
+}
+
+/**
+ * Format date
+ */
+function formatDate($date, $format = 'd/m/Y') {
+    if (empty($date)) return '';
+    $dateTime = new DateTime($date);
+    return $dateTime->format($format);
+}
+
+/**
+ * Format currency
+ */
+function formatCurrency($amount) {
+    return 'Rp ' . number_format($amount, 0, ',', '.');
+}
+
+/**
+ * Generate random string
+ */
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $randomString;
+}
+
+/**
+ * Generate unique code
+ */
+function generateUniqueCode($prefix = '') {
+    $timestamp = time();
+    $random = generateRandomString(6);
+    return strtoupper($prefix . $timestamp . $random);
+}
+
+/**
+ * Upload file
+ */
+function uploadFile($file, $targetDir, $allowedTypes = []) {
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['success' => false, 'error' => 'Upload error: ' . $file['error']];
+    }
+    
+    // Check file size
+    if ($file['size'] > MAX_UPLOAD_SIZE) {
+        return ['success' => false, 'error' => 'File terlalu besar. Maksimal: ' . (MAX_UPLOAD_SIZE / 1024 / 1024) . 'MB'];
+    }
+    
+    // Check file type
+    $fileExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if (!empty($allowedTypes) && !in_array($fileExt, $allowedTypes)) {
+        return ['success' => false, 'error' => 'Tipe file tidak diizinkan. Hanya: ' . implode(', ', $allowedTypes)];
+    }
+    
+    // Generate unique filename
+    $filename = uniqid() . '_' . time() . '.' . $fileExt;
+    $targetPath = $targetDir . $filename;
+    
+    // Create directory if not exists
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0777, true);
+    }
+    
+    // Move uploaded file
+    if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+        return ['success' => true, 'filename' => $filename, 'path' => $targetPath];
+    } else {
+        return ['success' => false, 'error' => 'Gagal menyimpan file'];
+    }
+}
+
+/**
+ * Get setting value
+ */
+function getSetting($key, $default = null) {
+    $db = getDB();
+    $stmt = $db->prepare("SELECT setting_value, setting_type FROM system_settings WHERE setting_key = ?");
+    $stmt->execute([$key]);
+    $row = $stmt->fetch();
+    
+    if ($row) {
+        switch ($row['setting_type']) {
+            case 'integer':
+                return (int)$row['setting_value'];
+            case 'boolean':
+                return (bool)$row['setting_value'];
+            case 'json':
+                return json_decode($row['setting_value'], true);
+            case 'array':
+                return explode(',', $row['setting_value']);
+            default:
+                return $row['setting_value'];
+        }
+    }
+    
+    return $default;
+}
+
+/**
+ * Set setting value
+ */
+function setSetting($key, $value, $type = 'string', $category = 'general', $description = '') {
+    $db = getDB();
+    
+    if (is_array($value)) {
+        $value = json_encode($value);
+        $type = 'json';
+    } elseif (is_bool($value)) {
+        $value = $value ? '1' : '0';
+        $type = 'boolean';
+    } elseif (is_int($value)) {
+        $type = 'integer';
+    }
+    
+    $stmt = $db->prepare("
+        INSERT INTO system_settings (setting_key, setting_value, setting_type, category, description) 
+        VALUES (?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE 
+            setting_value = VALUES(setting_value),
+            setting_type = VALUES(setting_type),
+            category = VALUES(category),
+            description = VALUES(description),
+            updated_at = CURRENT_TIMESTAMP
+    ");
+    
+    return $stmt->execute([$key, $value, $type, $category, $description]);
+}
+
+/**
+ * Ensure free test access table exists.
+ */
+function ensureFreeTestAccessTable() {
+    static $ensured = false;
+
+    if ($ensured) {
+        return true;
+    }
+
+    try {
+        $db = getDB();
+        $db->exec("
+            CREATE TABLE IF NOT EXISTS free_test_user_access (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                user_id INT NOT NULL UNIQUE,
+                is_enabled TINYINT(1) NOT NULL DEFAULT 1,
+                enabled_by INT DEFAULT NULL,
+                enabled_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                expires_at DATETIME DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                CONSTRAINT fk_free_test_user_access_user
+                    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+                CONSTRAINT fk_free_test_user_access_admin
+                    FOREIGN KEY (enabled_by) REFERENCES users(id) ON DELETE SET NULL,
+                INDEX idx_free_test_enabled (is_enabled),
+                INDEX idx_free_test_user_enabled (user_id, is_enabled)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+        ");
+        $columnStmt = $db->query("SHOW COLUMNS FROM free_test_user_access LIKE 'expires_at'");
+        if (!$columnStmt->fetch()) {
+            $db->exec("ALTER TABLE free_test_user_access ADD COLUMN expires_at DATETIME DEFAULT NULL AFTER enabled_at");
+        }
+        $ensured = true;
+        return true;
+    } catch (Exception $e) {
+        error_log("Ensure free test access table error: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Ensure users.avatar column exists for profile photo uploads.
+ */
+function ensureUserAvatarColumn() {
+    static $ensured = false;
+
+    if ($ensured) {
+        return true;
+    }
+
+    try {
+        $db = getDB();
+        $columnStmt = $db->query("SHOW COLUMNS FROM users LIKE 'avatar'");
+        if (!$columnStmt->fetch()) {
+            $db->exec("ALTER TABLE users ADD COLUMN avatar VARCHAR(255) DEFAULT NULL AFTER profile_picture");
+        }
+        $ensured = true;
+        return true;
+    } catch (Exception $e) {
+        error_log("Ensure user avatar column error: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Create a one-time free test status notification.
+ */
+function maybeCreateFreeTestStatusNotification($userId, $referenceType, $title, $message, $actionUrl = 'dashboard.php') {
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("
+            SELECT id
+            FROM notifications
+            WHERE user_id = ?
+            AND reference_type = ?
+            AND reference_id = ?
+            LIMIT 1
+        ");
+        $stmt->execute([(int)$userId, $referenceType, (int)$userId]);
+
+        if ($stmt->fetch()) {
+            return false;
+        }
+
+        return createNotification((int)$userId, $title, $message, [
+            'type' => 'warning',
+            'is_important' => 1,
+            'reference_type' => $referenceType,
+            'reference_id' => (int)$userId,
+            'action_url' => $actionUrl
+        ]);
+    } catch (Exception $e) {
+        error_log("Free test notification helper error: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Mark stale free test status notifications as read when access becomes active again.
+ */
+function clearFreeTestStatusNotifications($userId) {
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("
+            UPDATE notifications
+            SET is_read = 1,
+                read_at = COALESCE(read_at, NOW()),
+                updated_at = NOW()
+            WHERE user_id = ?
+            AND is_read = 0
+            AND reference_type IN ('free_test_access_disabled', 'free_test_access_expired')
+        ");
+        $stmt->execute([(int)$userId]);
+        return true;
+    } catch (Exception $e) {
+        error_log("Free test notification cleanup error: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Get global free test access expiry.
+ */
+function getFreeTestAccessExpiry() {
+    $value = trim((string) getSetting('free_test_access_expires_at', ''));
+    if ($value === '') {
+        return null;
+    }
+
+    try {
+        return new DateTime($value);
+    } catch (Exception $e) {
+        return null;
+    }
+}
+
+/**
+ * Get free test access mode.
+ */
+function getFreeTestAccessMode() {
+    $mode = strtolower((string) getSetting('free_test_access_mode', 'disabled'));
+    return in_array($mode, ['disabled', 'all', 'selected'], true) ? $mode : 'disabled';
+}
+
+/**
+ * Check whether a user can access free test mode.
+ */
+function isFreeTestEnabledForUser($userId = null) {
+    if ($userId === null) {
+        $currentUser = getCurrentUser();
+        $userId = $currentUser['id'] ?? 0;
+    }
+
+    $userId = (int) $userId;
+    if ($userId <= 0) {
+        return false;
+    }
+
+    $mode = getFreeTestAccessMode();
+    if ($mode === 'all') {
+        $expiresAt = getFreeTestAccessExpiry();
+        if ($expiresAt instanceof DateTime && $expiresAt <= new DateTime()) {
+            maybeCreateFreeTestStatusNotification(
+                $userId,
+                'free_test_access_expired',
+                'Akses Paket Gratis Berakhir',
+                'Masa aktif paket gratis untuk akun Anda sudah berakhir. Silakan hubungi admin jika Anda memerlukan akses lagi.'
+            );
+            return false;
+        }
+        clearFreeTestStatusNotifications($userId);
+        return true;
+    }
+
+    if ($mode !== 'selected') {
+        return false;
+    }
+
+    if (!ensureFreeTestAccessTable()) {
+        return false;
+    }
+
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("
+            SELECT is_enabled, expires_at
+            FROM free_test_user_access
+            WHERE user_id = ?
+            LIMIT 1
+        ");
+        $stmt->execute([$userId]);
+        $accessRow = $stmt->fetch();
+        if (!$accessRow || (int)($accessRow['is_enabled'] ?? 0) !== 1) {
+            return false;
+        }
+
+        if (!empty($accessRow['expires_at']) && strtotime((string)$accessRow['expires_at']) <= time()) {
+            maybeCreateFreeTestStatusNotification(
+                $userId,
+                'free_test_access_expired',
+                'Akses Paket Gratis Berakhir',
+                'Masa aktif paket gratis untuk akun Anda sudah berakhir. Silakan hubungi admin jika Anda memerlukan akses lagi.'
+            );
+            return false;
+        }
+
+        clearFreeTestStatusNotifications($userId);
+        return true;
+    } catch (Exception $e) {
+        error_log("Free test access check error: " . $e->getMessage());
+        return false;
+    }
+}
+
+/**
+ * Log activity
+ */
+function logActivity($userId, $action, $description = null) {
+    try {
+        $db = getDB();
+        $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+        
+        $stmt = $db->prepare("
+            INSERT INTO activity_logs 
+            (user_id, action, description, ip_address, user_agent, created_at)
+            VALUES (?, ?, ?, ?, ?, NOW())
+        ");
+        
+        $stmt->execute([$userId, $action, $description, $ip, $userAgent]);
+        
+        return true;
+    } catch (Exception $e) {
+        error_log("Log activity error: " . $e->getMessage());
+        return false;
+    }
+}
+
+function generateRandomCode($prefix = 'CODE') {
+    return $prefix . date('YmdHis') . rand(100, 999);
+}
+/**
+ * Get current user info
+ */
+function getCurrentUser() {
+    if (!isLoggedIn()) return null;
+    
+    $db = getDB();
+    $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt->execute([$_SESSION['user_id']]);
+    return $stmt->fetch();
+}
+
+/**
+ * Send notification
+ */
+function createNotification($userId, $title, $message, $options = []) {
+    try {
+        $db = getDB();
+
+        $type = $options['type'] ?? 'info';
+        $isImportant = !empty($options['is_important']) ? 1 : 0;
+        $referenceType = $options['reference_type'] ?? null;
+        $referenceId = $options['reference_id'] ?? null;
+        $actionUrl = $options['action_url'] ?? null;
+        $expiresAt = $options['expires_at'] ?? null;
+
+        $stmt = $db->prepare("
+            INSERT INTO notifications
+            (user_id, title, message, type, is_important, reference_type, reference_id, action_url, expires_at, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+        ");
+
+        $stmt->execute([
+            $userId,
+            $title,
+            $message,
+            $type,
+            $isImportant,
+            $referenceType,
+            $referenceId,
+            $actionUrl,
+            $expiresAt
+        ]);
+
+        if (!empty($options['send_email'])) {
+            $stmtUser = $db->prepare("SELECT email, full_name FROM users WHERE id = ? LIMIT 1");
+            $stmtUser->execute([$userId]);
+            $user = $stmtUser->fetch();
+            if (!empty($user['email'])) {
+                sendUserNotificationEmail(
+                    $user['email'],
+                    $user['full_name'] ?? 'Pengguna',
+                    $title,
+                    $message,
+                    $actionUrl
+                );
+            }
+        }
+
+        return (int)$db->lastInsertId();
+    } catch (Exception $e) {
+        error_log("Create notification error: " . $e->getMessage());
+        return false;
+    }
+}
+
+function sendUserNotificationEmail($to, $name, $title, $message, $actionUrl = '') {
+    $subject = "[" . APP_NAME . "] " . $title;
+    $safeName = htmlspecialchars($name ?: 'Pengguna', ENT_QUOTES, 'UTF-8');
+    $safeTitle = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+    $safeMessage = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
+    $safeAction = $actionUrl ? htmlspecialchars($actionUrl, ENT_QUOTES, 'UTF-8') : '';
+
+    $body = "
+    <html>
+    <head><meta charset=\"UTF-8\"><title>{$safeTitle}</title></head>
+    <body style=\"font-family: Arial, sans-serif; color: #1f2937;\">
+        <p>Halo {$safeName},</p>
+        <p><strong>{$safeTitle}</strong></p>
+        <p>{$safeMessage}</p>
+        " . ($safeAction ? "<p><a href=\"{$safeAction}\">Lihat detail</a></p>" : "") . "
+        <p>Terima kasih,<br>Tim " . APP_NAME . "</p>
+    </body>
+    </html>";
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8\r\n";
+    $headers .= 'From: ' . getSetting('site_email', 'noreply@mmpi.test') . "\r\n";
+
+    return @mail($to, $subject, $body, $headers);
+}
+
+function sendNotification($user_id, $title, $message, $type = 'info', $link = '') {
+    return createNotification($user_id, $title, $message, [
+        'type' => $type,
+        'action_url' => $link
+    ]) !== false;
+}
+
+/**
+ * Send welcome email
+ */
+function sendWelcomeEmail($to, $name) {
+    $subject = "Selamat Datang di " . APP_NAME;
+    $message = "
+    <html>
+    <head>
+        <title>Selamat Datang</title>
+    </head>
+    <body>
+        <h2>Halo $name!</h2>
+        <p>Terima kasih telah mendaftar di " . APP_NAME . ".</p>
+        <p>Akun Anda telah berhasil dibuat dan siap digunakan.</p>
+        <p>Anda dapat login menggunakan username/email yang telah Anda daftarkan.</p>
+        <br>
+        <p>Salam,</p>
+        <p>Tim " . APP_NAME . "</p>
+    </body>
+    </html>
+    ";
+    
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From: ' . getSetting('site_email', 'noreply@mmpi.test') . "\r\n";
+    
+    return mail($to, $subject, $message, $headers);
+}
+
+/**
+ * Validate date
+ */
+function isValidDate($date, $format = 'Y-m-d') {
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) === $date;
+}
+
+/**
+ * Get age from date of birth
+ */
+function calculateAge($birthDate) {
+    if (!$birthDate || $birthDate == '0000-00-00') {
+        return 'N/A';
+    }
+    
+    $birth = new DateTime($birthDate);
+    $today = new DateTime();
+    $age = $today->diff($birth);
+    
+    return $age->y;
+}
+
+/**
+ * Generate unique test session code
+ */
+function generateTestSessionCode() {
+    return 'TESTSESS-' . date('Ymd') . '-' . strtoupper(substr(md5(uniqid()), 0, 8));
+}
+
+/**
+ * Generate unique result code
+ */
+function generateResultCode() {
+    return 'RESULT-' . date('Ymd') . '-' . strtoupper(substr(md5(uniqid()), 0, 8));
+}
+
+/**
+ * Get test session by ID
+ */
+function getTestSession($id, $userId = null) {
+    $db = getDB();
+    
+    $sql = "SELECT ts.*, p.name as package_name FROM test_sessions ts 
+            JOIN packages p ON ts.package_id = p.id 
+            WHERE ts.id = ?";
+    
+    if ($userId) {
+        $sql .= " AND ts.user_id = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$id, $userId]);
+    } else {
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$id]);
+    }
+    
+    return $stmt->fetch();
+}
+
+/**
+ * Get user's active test sessions
+ */
+function getUserActiveSessions($userId) {
+    $db = getDB();
+    
+    $stmt = $db->prepare("
+        SELECT ts.*, p.name as package_name 
+        FROM test_sessions ts 
+        JOIN packages p ON ts.package_id = p.id 
+        WHERE ts.user_id = ? 
+        AND ts.status IN ('not_started', 'in_progress')
+        ORDER BY ts.created_at DESC
+    ");
+    
+    $stmt->execute([$userId]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Calculate test progress percentage
+ */
+function calculateTestProgress($sessionId) {
+    $db = getDB();
+    
+    $stmt = $db->prepare("SELECT mmpi_answers, adhd_answers FROM test_sessions WHERE id = ?");
+    $stmt->execute([$sessionId]);
+    $session = $stmt->fetch();
+    
+    $totalQuestions = 0;
+    $answeredQuestions = 0;
+    
+    if ($session['mmpi_answers']) {
+        $answers = json_decode($session['mmpi_answers'], true);
+        $totalQuestions += count($answers);
+        $answeredQuestions += count(array_filter($answers, function($val) {
+            return $val !== null;
+        }));
+    }
+    
+    if ($session['adhd_answers']) {
+        $answers = json_decode($session['adhd_answers'], true);
+        $totalQuestions += count($answers);
+        $answeredQuestions += count(array_filter($answers, function($val) {
+            return $val !== null;
+        }));
+    }
+    
+    return $totalQuestions > 0 ? round(($answeredQuestions / $totalQuestions) * 100) : 0;
+}
+
+// ============================================
+// AUTOLOAD CLASSES (if needed)
+// ============================================
+spl_autoload_register(function ($class) {
+    $file = INCLUDES_PATH . 'classes/' . str_replace('\\', '/', $class) . '.php';
+    if (file_exists($file)) {
+        require $file;
+    }
+});
+
+// ============================================
+// INITIALIZE SESSION VARIABLES
+// ============================================
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = generateCSRFToken();
+}
+
+// ============================================
+// TIMEZONE SETTING
+// ============================================
+date_default_timezone_set('Asia/Jakarta');
+
+// ============================================
+// GLOBAL VARIABLES
+// ============================================
+$currentUser = null;
+if (isLoggedIn()) {
+    $currentUser = getCurrentUser();
+}
+
+// Tambahkan di includes/config.php setelah fungsi yang ada
+
+/**
+ * Get active bank accounts for display
+ */
+function getActiveBankAccounts() {
+    $db = getDB();
+    $banks = [];
+    
+    try {
+        $stmt = $db->prepare("
+            SELECT setting_value 
+            FROM system_settings 
+            WHERE category = 'bank_account' 
+            AND setting_type = 'json'
+        ");
+        $stmt->execute();
+        
+        while ($row = $stmt->fetch()) {
+            $bankData = json_decode($row['setting_value'], true);
+            if ($bankData['is_active'] ?? false) {
+                $banks[] = $bankData;
+            }
+        }
+    } catch (Exception $e) {
+        error_log("Error getting bank accounts: " . $e->getMessage());
+    }
+    
+    return $banks;
+}
+
+/**
+ * Format bank account for display
+ */
+function formatBankAccount($bank) {
+    return $bank['bank_name'] . ' - ' . 
+           $bank['account_number'] . ' a.n ' . 
+           $bank['account_name'];
+}
+
+/**
+ * Get QRIS settings
+ */
+function getQRISSettings() {
+    $settings = [
+        'enabled' => getSetting('qris_enabled', 0),
+        'merchant_name' => getSetting('qris_merchant_name', APP_NAME),
+        'merchant_city' => getSetting('qris_merchant_city', 'Jakarta'),
+        'image_path' => getSetting('qris_image_path', 'qris-code.jpg'),
+        'callback_url' => getSetting('qris_callback_url', BASE_URL . '/client/payment_callback.php'),
+        'api_key' => getSetting('qris_api_key', ''),
+        'api_secret' => getSetting('qris_api_secret', '')
+    ];
+    
+    return $settings;
+}
+
+/**
+ * Check if QRIS is enabled
+ */
+function isQRISEnabled() {
+    return getSetting('qris_enabled', 0) == 1;
+}
+
+/**
+ * Send payment notification to admin
+ */
+function sendPaymentNotification($orderId, $type = 'new') {
+    // Implementation depends on your notification system
+    // Could be email, WhatsApp, or internal notification
+    return true;
+}
+
+/**
+ * Generate payment instructions HTML
+ */
+function generatePaymentInstructions($order, $paymentMethod) {
+    $html = '';
+    
+    if ($paymentMethod === 'transfer') {
+        $banks = getActiveBankAccounts();
+        
+        $html .= '<div class="payment-instructions">';
+        $html .= '<h4><i class="fas fa-university"></i> Transfer ke Rekening Berikut:</h4>';
+        
+        foreach ($banks as $bank) {
+            $html .= '<div class="bank-info">';
+            $html .= '<strong>' . htmlspecialchars($bank['bank_name']) . '</strong><br>';
+            $html .= '<span style="font-family: monospace; font-size: 18px;">';
+            $html .= htmlspecialchars($bank['account_number']);
+            $html .= '</span><br>';
+            $html .= 'a.n ' . htmlspecialchars($bank['account_name']);
+            
+            if (!empty($bank['notes'])) {
+                $html .= '<br><small>' . htmlspecialchars($bank['notes']) . '</small>';
+            }
+            
+            $html .= '</div>';
+        }
+        
+        $html .= '<div class="alert alert-warning" style="margin-top: 15px;">';
+        $html .= '<i class="fas fa-exclamation-triangle"></i> ';
+        $html .= '<strong>WAJIB UPLOAD BUKTI TRANSFER</strong> setelah melakukan transfer.';
+        $html .= '</div>';
+        $html .= '</div>';
+        
+    } elseif ($paymentMethod === 'qris') {
+        $qrisSettings = getQRISSettings();
+        
+        $html .= '<div class="payment-instructions">';
+        $html .= '<h4><i class="fas fa-qrcode"></i> Scan QR Code Berikut:</h4>';
+        
+        $qrisImage = BASE_URL . '/assets/qris/' . $qrisSettings['image_path'];
+        $html .= '<div style="text-align: center; margin: 20px 0;">';
+        
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . parse_url($qrisImage, PHP_URL_PATH))) {
+            $html .= '<img src="' . $qrisImage . '" alt="QRIS Code" style="max-width: 250px; height: auto;">';
+        } else {
+            $html .= '<div style="background: #f8f9fa; padding: 40px; border-radius: 10px;">';
+            $html .= '<i class="fas fa-qrcode" style="font-size: 48px; color: #6c757d;"></i><br>';
+            $html .= '<p>QRIS Code</p>';
+            $html .= '</div>';
+        }
+        
+        $html .= '</div>';
+        
+        $html .= '<div class="alert alert-info">';
+        $html .= '<i class="fas fa-info-circle"></i> ';
+        $html .= 'Scan QR code dengan aplikasi e-wallet atau mobile banking Anda.<br>';
+        $html .= 'Pembayaran akan diverifikasi otomatis dalam 5-15 menit.';
+        $html .= '</div>';
+        $html .= '</div>';
+    }
+    
+    return $html;
+}
+
+// Tambahkan setelah definisi UPLOADS_PATH
+define('PROOF_UPLOAD_PATH', ROOT_PATH . 'assets/uploads/payment_proofs/');
+define('QRIS_IMAGE_PATH', ROOT_PATH . 'assets/qris/');
+
+// Tambahkan fungsi helper untuk upload
+function getProofUploadPath() {
+    $path = PROOF_UPLOAD_PATH;
+    if (!is_dir($path)) {
+        mkdir($path, 0777, true);
+    }
+    return $path;
+}
+
+function getQRISImagePath() {
+    $path = QRIS_IMAGE_PATH;
+    if (!is_dir($path)) {
+        mkdir($path, 0755, true);
+    }
+    return $path;
+}
+?>

@@ -1,0 +1,568 @@
+question_number	category	scales	hl_subscale	content_scale
+1	Personality Traits	-	-	-
+2	Clinical Scales	Hs,D,Hy,RCd,RC1	D3	HEA
+3	Clinical Scales	Hs,D,Hy,Pt,RCd,RC1,RC7	Hy1	-
+4	Personality Traits	-	-	-
+5	Clinical Scales	Hs,RC1	D1	-
+6	Clinical Scales	Hy	-	-
+7	Clinical Scales	Hy	-	-
+8	Clinical Scales	Hy	Ma3	-
+9	Clinical Scales	D,Hy,RCd,RC2	D1	DEP
+10	Clinical Scales	Hs,D,Hy,Pt,RCd,RC1,RC7	D3	HEA
+11	Personality Traits	-	-	-
+12	Clinical Scales	Hy,AGGR,DISC,RC4	Pd3	ANG
+13	Clinical Scales	DISC,RC4	-	ANG
+14	Validity Scales	F,Hy	Hy1	-
+15	Validity Scales	L,Pt,NEGE,RC7	D1	WRK
+16	Clinical Scales	Pd,DISC,RC4	Hy1	ANG
+17	Clinical Scales	Pd	-	-
+18	Clinical Scales	Hs,D,Hy,RCd,RC1	D3	-
+19	Clinical Scales	AGGR,DISC,RC4	Ma1	ANG
+20	Clinical Scales	Hs,D,DISC,RCd,RC1,RC4	Hy1	HEA
+21	Clinical Scales	Pd	Pd1	-
+22	Clinical Scales	Pd,Pt,NEGE,RC7	Sc5	-
+23	Validity Scales	F,D,RCd	Sc5	-
+24	Clinical Scales	Pd,AGGR,DISC,RC4	D1	ANG
+25	Mental Health Screening	-	D2	-
+26	Clinical Scales	Hy	Pa3	-
+27	Validity Scales	F,AGGR,PSYC,NEGE,RC3,RC8,RC9	D1	BIZ
+28	Clinical Scales	Hs,Hy,RC1	Hy4	-
+29	Validity Scales	K,Hy	-	-
+30	Validity Scales	L,Hy	-	-
+31	Validity Scales	F,Pd,Pt,PSYC,NEGE,RC7,RC8,RC9	D1	BIZ
+32	Clinical Scales	Pd,Pt,RC7	-	-
+33	Validity Scales	F,Hs,D,AGGR,PSYC,NEGE,RCd,RC1,RC3,RC8,RC9	D1	OBS
+34	Validity Scales	F,Pd,AGGR,DISC,RC4	Hy2	ANG
+35	Validity Scales	F,Pd	Pd2	-
+36	Validity Scales	F,INTR	D3	SOD
+37	Validity Scales	K	Hy2	-
+38	Clinical Scales	D,DISC,NEGE,RCd,RC2,RC4	D1	DEP
+39	Clinical Scales	Hs,D,Hy,Pt,NEGE,RCd,RC1,RC2,RC7	-	ANX
+40	Clinical Scales	Hs,RC1	Hy2	-
+41	Clinical Scales	D,DISC,RCd,RC4	-	ANG
+42	Validity Scales	F,Pd,AGGR,PSYC,DISC,NEGE,RC2,RC3,RC4,RC8,RC9	Hy2	DEP
+43	Clinical Scales	D,RCd	-	-
+44	Clinical Scales	Hs,NEGE,RC1	D3	-
+45	Validity Scales	L,Hs,D,RCd,RC1	Sc5	-
+46	Clinical Scales	D,AGGR,DISC,NEGE,RCd,RC4	D1	ANG
+47	Clinical Scales	Hs,RC1	Hy2	HEA
+48	Validity Scales	F	D3	-
+49	Personality Traits	-	-	-
+50	Validity Scales	F,PSYC,RC2,RC8,RC9	D1	DEP
+51	Mental Health Screening	NEGE	-	LSE
+52	Clinical Scales	D,Pd,INTR,RCd	Hy4	HEA
+53	Clinical Scales	Hs,RC1,RC9	Hy2	TPA
+54	Validity Scales	F,Pd,RC2	D1	DEP
+55	Clinical Scales	Pt,NEGE,RC7	D1	WRK
+56	Validity Scales	F,Pd,INTR,RC2	Hy3	DEP
+57	Clinical Scales	Hs,INTR,RC1,RC2,RC9	Hy4	DEP
+58	Validity Scales	K	Hy4	-
+59	Personality Traits	-	-	-
+60	Validity Scales	L	Hy2	-
+61	Clinical Scales	AGGR,NEGE,RC3	Hy3	CYN
+62	Clinical Scales	INTR,RC2,RC9	D1	DEP
+63	Personality Traits	-	-	-
+64	Personality Traits	-	-	-
+65	Mental Health Screening	NEGE	Si3	-
+66	Validity Scales	F,PSYC,RC8	-	BIZ
+67	Clinical Scales	AGGR,NEGE,RC3	Pd3	CYN
+68	Clinical Scales	INTR,RC2,RC9	-	ANX
+69	Personality Traits	-	-	-
+70	Clinical Scales	RC3	-	CYN
+71	Clinical Scales	Pd,RC2	-	DEP
+72	Validity Scales	F,PSYC,RC8,RC9	D1	BIZ
+73	Clinical Scales	Pt,INTR,RC2,RC7	-	DEP
+74	Clinical Scales	INTR,RC2,RC3	-	DEP
+75	Validity Scales	L,INTR,RC2	D1	DEP
+76	Validity Scales	K,NEGE,RC9	-	ANX
+77	Personality Traits	-	-	-
+78	Clinical Scales	PSYC,RC8,RC9	-	BIZ
+79	Personality Traits	-	-	-
+80	Personality Traits	-	-	-
+81	Mental Health Screening	-	Pa3	-
+82	Clinical Scales	Pd,Pt,RC7	-	-
+83	Validity Scales	K,INTR,RC3	-	CYN
+84	Clinical Scales	AGGR,PSYC,DISC,RC4,RC8	Pd5	BIZ
+85	Clinical Scales	RC9	Ma2	TPA
+86	Mental Health Screening	INTR	Ma2	-
+87	Clinical Scales	Pt,INTR,RC7	Ma3	-
+88	Mental Health Screening	INTR	-	-
+89	Mental Health Screening	INTR	-	-
+90	Validity Scales	L,INTR	-	-
+91	Mental Health Screening	INTR	Hy4	-
+92	Clinical Scales	INTR,RC2	Hy3	DEP
+93	Mental Health Screening	INTR	Pd2	-
+94	Clinical Scales	Pt,PSYC,NEGE,INTR,RC7,RC8,RC9	Sc1	BIZ
+95	Clinical Scales	INTR,RC2	D1	DEP
+96	Mental Health Screening	INTR	Pd1	ANG
+97	Mental Health Screening	INTR	-	LSE
+98	Clinical Scales	INTR,RC2	D1	DEP
+99	Mental Health Screening	INTR	Pd2	-
+100	Clinical Scales	PSYC,NEGE,INTR,RC2,RC3,RC8,RC9	Hy4	DEP
+101	Mental Health Screening	INTR	-	-
+102	Clinical Scales	AGGR,PSYC,DISC,INTR,RC2,RC3,RC4,RC8,RC9	D1	DEP
+103	Mental Health Screening	INTR	-	-
+104	Mental Health Screening	INTR	Hy4	-
+105	Validity Scales	L,DISC,INTR	-	-
+106	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC2,RC3,RC4,RC8,RC9	D1	DEP
+107	Mental Health Screening	INTR	-	-
+108	Clinical Scales	Pt,INTR,RC7	-	-
+109	Clinical Scales	PSYC,INTR,RC2,RC3,RC8,RC9	D1	OBS
+110	Validity Scales	K,AGGR,DISC,INTR,RC4	Pd4	ASP
+111	Mental Health Screening	DISC,INTR	Hy4	-
+112	Mental Health Screening	DISC,INTR	Ma2	-
+113	Mental Health Screening	DISC,INTR	-	-
+114	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2,RC3,RC8,RC9	D1	DEP
+115	Mental Health Screening	DISC,INTR	-	-
+116	Validity Scales	K,AGGR,DISC,INTR,RC4	-	ASP
+117	Mental Health Screening	DISC,INTR	Pa3	-
+118	Mental Health Screening	DISC,INTR	Hy4	-
+119	Clinical Scales	AGGR,DISC,INTR,RC4	Hy4	ASP
+120	Validity Scales	L,DISC,INTR	Pd3	LSE
+121	Clinical Scales	DISC,INTR,RC2,RC9	D1	DEP
+122	Validity Scales	K,AGGR,DISC,INTR,RC4	Ma2	ASP
+123	Mental Health Screening	DISC,INTR	Pa3	-
+124	Clinical Scales	DISC,INTR,RC2	D1	DEP
+125	Mental Health Screening	DISC,INTR	-	-
+126	Mental Health Screening	DISC,INTR	-	-
+127	Validity Scales	K,PSYC,DISC,NEGE,INTR,RC3,RC8,RC9	Pd4	BIZ
+128	Mental Health Screening	DISC,INTR	-	OBS
+129	Clinical Scales	DISC,INTR,RC2	Ma4	DEP
+130	Validity Scales	K,Pt,DISC,INTR,RC2,RC7	Hy3	DEP
+131	Clinical Scales	DISC,INTR,RC2	-	DEP
+132	Clinical Scales	DISC,INTR,RC4	-	ASP
+133	Mental Health Screening	DISC,INTR	Ma1	-
+134	Clinical Scales	AGGR,DISC,INTR,RC2	-	DEP
+135	Validity Scales	L,DISC,INTR	Ma3	OBS
+136	Validity Scales	K,PSYC,DISC,INTR,RC2,RC3,RC8,RC9	D1	DEP
+137	Mental Health Screening	DISC,NEGE,INTR	-	-
+138	Mental Health Screening	DISC,INTR	Hy4	ANG
+139	Mental Health Screening	DISC,INTR	Si1	-
+140	Clinical Scales	PSYC,DISC,INTR,RC2,RC3,RC8,RC9	-	ANX
+141	Clinical Scales	Pt,DISC,INTR,RC7	D3	HEA
+142	Clinical Scales	DISC,NEGE,INTR,RC2	D1	ANX
+143	Clinical Scales	DISC,NEGE,INTR,RC4	Sc5	ASP
+144	Clinical Scales	AGGR,DISC,NEGE,INTR,RC4	Pd2	ANG
+145	Mental Health Screening	DISC,NEGE,INTR	-	-
+146	Mental Health Screening	DISC,NEGE,INTR	D1	-
+147	Clinical Scales	PSYC,DISC,NEGE,INTR,RC3,RC8,RC9	Ma2	BIZ
+148	Validity Scales	K,DISC,NEGE,INTR	D3	HEA
+149	Clinical Scales	DISC,NEGE,INTR,RC4	Pa1	ANG
+150	Validity Scales	L,DISC,NEGE,INTR	-	ANX
+151	Mental Health Screening	DISC,NEGE,INTR	-	-
+152	Clinical Scales	DISC,NEGE,INTR,RC9	Ma3	ANX
+153	Mental Health Screening	DISC,NEGE,INTR	Ma4	-
+154	Mental Health Screening	DISC,NEGE,INTR	Hy4	-
+155	Clinical Scales	DISC,NEGE,INTR,RC2	D1	DEP
+156	Clinical Scales	AGGR,DISC,NEGE,INTR,RC4	-	ANX
+157	Validity Scales	K,DISC,NEGE,INTR	Hy4	-
+158	Validity Scales	K,DISC,NEGE,INTR	Pa1	-
+159	Mental Health Screening	DISC,NEGE,INTR	Hy4	-
+160	Clinical Scales	DISC,NEGE,INTR,RC2	D1	DEP
+161	Mental Health Screening	DISC,NEGE,INTR	-	ANX
+162	Mental Health Screening	DISC,NEGE,INTR	D3	HEA
+163	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC4,RC8,RC9	Sc2	OBS
+164	Mental Health Screening	DISC,NEGE,INTR	-	-
+165	Validity Scales	L,DISC,NEGE,INTR,RC2,RC9	Hy3	ANX
+166	Clinical Scales	DISC,NEGE,INTR,RC2	Hy4	DEP
+167	Validity Scales	K,DISC,NEGE,INTR,RC2,RC4	Sc2	DEP
+168	Mental Health Screening	DISC,NEGE,INTR	Sc3	-
+169	Mental Health Screening	DISC,NEGE,INTR	Sc3	-
+170	Clinical Scales	DISC,NEGE,INTR,RC3,RC4,RC9	-	CYN
+171	Clinical Scales	DISC,NEGE,INTR,RC4	Pd2	ANG
+172	Clinical Scales	DISC,NEGE,INTR,RC3,RC6	-	FRS
+173	Clinical Scales	DISC,NEGE,INTR,RC6,RC9	-	FRS
+174	Mental Health Screening	DISC,NEGE,INTR	-	-
+175	Clinical Scales	DISC,NEGE,INTR,RC2,RC3,RC4	D1	DEP
+176	Mental Health Screening	DISC,NEGE,INTR	Ma3	ANG
+177	Mental Health Screening	DISC,NEGE,INTR	Pd1	-
+178	Mental Health Screening	DISC,NEGE,INTR	Sc3	-
+179	Clinical Scales	DISC,NEGE,INTR,RC6	Sc1	FRS
+180	Mental Health Screening	DISC,NEGE,INTR	-	-
+181	Clinical Scales	DISC,NEGE,INTR,RC3,RC4,RC9	-	CYN
+182	Clinical Scales	DISC,NEGE,INTR,RC2	D3	DEP
+183	Mental Health Screening	DISC,NEGE,INTR	-	ANG
+184	Clinical Scales	DISC,NEGE,INTR,RC3,RC4,RC6,RC9	-	FRS
+185	Mental Health Screening	DISC,NEGE,INTR	-	-
+186	Clinical Scales	DISC,NEGE,INTR,RC3	-	CYN
+187	Clinical Scales	DISC,NEGE,INTR,RC6	-	FRS
+188	Clinical Scales	DISC,NEGE,INTR,RC9	Sc3	TPA
+189	Mental Health Screening	DISC,NEGE,INTR	-	ANG
+190	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6,RC8	-	FRS
+191	Clinical Scales	DISC,NEGE,INTR,RC2	D1	DEP
+192	Mental Health Screening	DISC,NEGE,INTR	Sc5	HEA
+193	Mental Health Screening	DISC,NEGE,INTR	-	-
+194	Clinical Scales	DISC,NEGE,INTR,RC3,RC6	-	FRS
+195	Validity Scales	L,DISC,NEGE,INTR	-	-
+196	Clinical Scales	DISC,NEGE,INTR,RC9	-	ANG
+197	Mental Health Screening	DISC,NEGE,INTR	-	-
+198	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+199	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	-	OBS
+200	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	-	FRS
+201	Clinical Scales	PSYC,DISC,NEGE,INTR,RC4	Sc4	ASP
+202	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	ANG
+203	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	Sc2	FRS
+204	Mental Health Screening	PSYC,DISC,NEGE,INTR	Ma2	-
+205	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	-	OBS
+206	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	-	FRS
+207	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	Sc1	DEP
+208	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC3	Pd2	ANG
+209	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2,RC3	Sc4	DEP
+210	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	Pd3	ANX
+211	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2,RC6,RC9	Ma3	FRS
+212	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+213	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2,RC3,RC6,RC9	Ma2	FRS
+214	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	OBS
+215	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	Ma3	DEP
+216	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	Sc3	FRS
+217	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC3,RC4,RC9	-	ANG
+218	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pd3	-
+219	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pd1	ANG
+220	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	-	FRS
+221	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+222	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+223	Clinical Scales	PSYC,DISC,NEGE,INTR,RC9	Sc4	TPA
+224	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	-	FRS
+225	Validity Scales	L,PSYC,DISC,NEGE,INTR	-	-
+226	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pd3	-
+227	Clinical Scales	PSYC,DISC,NEGE,INTR,RC3,RC4,RC9	-	CYN
+228	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+229	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	Ma3	DEP
+230	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	-	FRS
+231	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc3	-
+232	Clinical Scales	PSYC,DISC,NEGE,INTR,RC9	-	ANG
+233	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+234	Mental Health Screening	PSYC,DISC,NEGE,INTR	Hy5	-
+235	Clinical Scales	PSYC,DISC,NEGE,INTR,RC2	D1	DEP
+236	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+237	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+238	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+239	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc5	-
+240	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc5	-
+241	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa3	FAM
+242	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC3,RC4,RC9	-	ANG
+243	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6,RC9	Pd4	FRS
+244	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	FAM
+245	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	FAM
+246	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC4	Ma2	ASP
+247	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc6	-
+248	Clinical Scales	PSYC,DISC,NEGE,INTR,RC9	Sc5	TPA
+249	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc1	-
+250	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+251	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC4	-	ASP
+252	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	HEA
+253	Clinical Scales	PSYC,DISC,NEGE,INTR,RC9	-	TPA
+254	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa2	FAM
+255	Validity Scales	L,PSYC,DISC,NEGE,INTR,RC9	Sc6	TPA
+256	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+257	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+258	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+259	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+260	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc2	-
+261	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+262	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc2	-
+263	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pd3	-
+264	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+265	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	Pa2	-
+266	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC4,RC9	Ma2	ASP
+267	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pd4	HEA
+268	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pd1	-
+269	Mental Health Screening	PSYC,DISC,NEGE,INTR	Ma2	-
+270	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+271	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa3	-
+272	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+273	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+274	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc1	-
+275	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+276	Clinical Scales	PSYC,DISC,NEGE,INTR,RC9	-	TPA
+277	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc2	-
+278	Mental Health Screening	PSYC,DISC,NEGE,INTR	Ma4	-
+279	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+280	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+281	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+282	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+283	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa2	-
+284	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	Ma4	-
+285	Validity Scales	L,PSYC,DISC,NEGE,INTR	Pa1	-
+286	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc1	-
+287	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+288	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa3	-
+289	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+290	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	FAM
+291	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	Ma4	-
+292	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa3	-
+293	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc1	ANX
+294	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+295	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+296	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+297	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	ANG
+298	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa2	-
+299	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+300	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc5	-
+301	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc2	-
+302	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa2	-
+303	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+304	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	Sc3	ANX
+305	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	Sc4	-
+306	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+307	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc2	HEA
+308	Mental Health Screening	PSYC,DISC,NEGE,INTR	Si3	ANX
+309	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	ANX
+310	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+311	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc1	-
+312	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc3	-
+313	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa2	-
+314	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+315	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc2	-
+316	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc1	-
+317	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+318	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+319	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc3	ANX
+320	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+321	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+322	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc4	-
+323	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc5	-
+324	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+325	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+326	Mental Health Screening	PSYC,DISC,NEGE,INTR	Si3	-
+327	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+328	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc3	-
+329	Mental Health Screening	PSYC,DISC,NEGE,INTR	Sc5	-
+330	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+331	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+332	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+333	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	Si2	OBS
+334	Clinical Scales	PSYC,DISC,NEGE,INTR,RC8	-	BIZ
+335	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+336	Mental Health Screening	PSYC,DISC,NEGE,INTR	Pa1	-
+337	Mental Health Screening	PSYC,DISC,NEGE,INTR	Si3	-
+338	Mental Health Screening	PSYC,DISC,NEGE,INTR	Si2	-
+339	Clinical Scales	PSYC,DISC,NEGE,INTR,RC8	Sc1	ANX
+340	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+341	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+342	Clinical Scales	PSYC,DISC,NEGE,INTR,RC6	-	ANX
+343	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+344	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+345	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+346	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+347	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	ANX
+348	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+349	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+350	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC8	-	HEA
+351	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+352	Clinical Scales	PSYC,DISC,NEGE,INTR,RC8	-	BIZ
+353	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+354	Clinical Scales	PSYC,DISC,NEGE,INTR,RC8	-	BIZ
+355	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+356	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	HEA
+357	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+358	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	ANX
+359	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	HEA
+360	Mental Health Screening	PSYC,DISC,NEGE,INTR	-	-
+361	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+362	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC8	-	BIZ
+363	Clinical Scales	AGGR,PSYC,DISC,NEGE,INTR,RC8	-	BIZ
+364	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+365	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+366	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+367	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	HEA
+368	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+369	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+370	Mental Health Screening	AGGR,PSYC,DISC,NEGE,INTR	-	-
+371	Mental Health Screening	-	-	HEA
+372	Personality Traits	-	-	-
+373	Personality Traits	-	-	-
+374	Personality Traits	-	-	-
+375	Personality Traits	-	-	-
+376	Personality Traits	-	-	-
+377	Personality Traits	-	-	-
+378	Mental Health Screening	-	-	HEA
+379	Personality Traits	-	-	-
+380	Personality Traits	-	-	-
+381	Personality Traits	-	-	-
+382	Personality Traits	-	-	-
+383	Clinical Scales	RC6	-	FRS
+384	Mental Health Screening	-	-	HEA
+385	Personality Traits	-	-	-
+386	Personality Traits	-	-	-
+387	Mental Health Screening	-	-	HEA
+388	Clinical Scales	RC6	-	FRS
+389	Personality Traits	-	-	-
+390	Personality Traits	-	-	-
+391	Personality Traits	-	-	-
+392	Personality Traits	-	-	-
+393	Personality Traits	-	-	-
+394	Personality Traits	-	-	-
+395	Personality Traits	-	-	-
+396	Personality Traits	-	-	-
+397	Personality Traits	-	-	-
+398	Personality Traits	-	-	-
+399	Personality Traits	-	-	-
+400	Personality Traits	-	-	-
+401	Personality Traits	-	-	-
+402	Personality Traits	-	-	-
+403	Personality Traits	-	-	-
+404	Personality Traits	-	-	-
+405	Personality Traits	-	-	-
+406	Personality Traits	-	-	-
+407	Personality Traits	-	-	-
+408	Mental Health Screening	-	-	ANX
+409	Personality Traits	-	-	-
+410	Personality Traits	-	-	-
+411	Personality Traits	-	-	-
+412	Personality Traits	-	-	-
+413	Personality Traits	-	-	-
+414	Personality Traits	-	-	-
+415	Personality Traits	-	-	-
+416	Personality Traits	-	-	-
+417	Personality Traits	-	-	-
+418	Personality Traits	-	-	-
+419	Personality Traits	-	-	-
+420	Personality Traits	-	-	-
+421	Personality Traits	-	-	-
+422	Personality Traits	-	-	-
+423	Personality Traits	-	-	-
+424	Personality Traits	-	-	-
+425	Personality Traits	-	-	-
+426	Personality Traits	-	-	-
+427	Personality Traits	-	-	-
+428	Personality Traits	-	-	-
+429	Personality Traits	-	-	-
+430	Personality Traits	-	-	-
+431	Personality Traits	-	-	-
+432	Personality Traits	-	-	-
+433	Personality Traits	-	-	-
+434	Personality Traits	-	-	-
+435	Personality Traits	-	-	-
+436	Personality Traits	-	-	-
+437	Personality Traits	-	-	-
+438	Personality Traits	-	-	-
+439	Personality Traits	-	-	-
+440	Personality Traits	-	-	-
+441	Personality Traits	-	-	-
+442	Personality Traits	-	-	-
+443	Mental Health Screening	-	-	OBS
+444	Personality Traits	-	-	-
+445	Personality Traits	-	-	-
+446	Personality Traits	-	-	-
+447	Personality Traits	-	-	-
+448	Personality Traits	-	-	-
+449	Personality Traits	-	-	-
+450	Personality Traits	-	-	-
+451	Personality Traits	-	-	-
+452	Personality Traits	-	-	-
+453	Personality Traits	-	-	-
+454	Personality Traits	-	-	-
+455	Personality Traits	-	-	-
+456	Personality Traits	-	-	-
+457	Personality Traits	-	-	-
+458	Mental Health Screening	-	-	OBS
+459	Personality Traits	-	-	-
+460	Personality Traits	-	-	-
+461	Personality Traits	-	-	-
+462	Personality Traits	-	-	-
+463	Mental Health Screening	-	-	ANX
+464	Personality Traits	-	-	-
+465	Personality Traits	-	-	-
+466	Personality Traits	-	-	-
+467	Personality Traits	-	-	-
+468	Personality Traits	-	-	-
+469	Mental Health Screening	-	-	ANX
+470	Personality Traits	-	-	-
+471	Personality Traits	-	-	-
+472	Mental Health Screening	-	-	OBS
+473	Personality Traits	-	-	-
+474	Personality Traits	-	-	-
+475	Personality Traits	-	-	-
+476	Personality Traits	-	-	-
+477	Personality Traits	-	-	-
+478	Personality Traits	-	-	-
+479	Personality Traits	-	-	-
+480	Personality Traits	-	-	-
+481	Personality Traits	-	-	-
+482	Personality Traits	-	-	-
+483	Personality Traits	-	-	-
+484	Mental Health Screening	-	-	OBS
+485	Clinical Scales	RC6	-	FRS
+486	Personality Traits	-	-	-
+487	Personality Traits	-	-	-
+488	Personality Traits	-	-	-
+489	Personality Traits	-	-	-
+490	Personality Traits	-	-	-
+491	Personality Traits	-	-	-
+492	Personality Traits	-	-	-
+493	Personality Traits	-	-	-
+494	Personality Traits	-	-	-
+495	Personality Traits	-	-	-
+496	Clinical Scales	RC6	-	FRS
+497	Personality Traits	-	-	-
+498	Personality Traits	-	-	-
+499	Personality Traits	-	-	-
+500	Personality Traits	-	-	-
+501	Personality Traits	-	-	-
+502	Personality Traits	-	-	-
+503	Personality Traits	-	-	-
+504	Personality Traits	-	-	-
+505	Personality Traits	-	-	-
+506	Personality Traits	-	-	-
+507	Personality Traits	-	-	-
+508	Personality Traits	-	-	-
+509	Personality Traits	-	-	-
+510	Personality Traits	-	-	-
+511	Personality Traits	-	-	-
+512	Personality Traits	-	-	-
+513	Personality Traits	-	-	-
+514	Personality Traits	-	-	-
+515	Personality Traits	-	-	-
+516	Personality Traits	-	-	-
+517	Personality Traits	-	-	-
+518	Personality Traits	-	-	-
+519	Personality Traits	-	-	-
+520	Personality Traits	-	-	-
+521	Personality Traits	-	-	-
+522	Personality Traits	-	-	-
+523	Personality Traits	-	-	-
+524	Personality Traits	-	-	-
+525	Personality Traits	-	-	-
+526	Personality Traits	-	-	-
+527	Personality Traits	-	-	-
+528	Personality Traits	-	-	-
+529	Personality Traits	-	-	-
+530	Personality Traits	-	-	-
+531	Personality Traits	-	-	-
+532	Personality Traits	-	-	-
+533	Personality Traits	-	-	-
+534	Personality Traits	-	-	-
+535	Personality Traits	-	-	-
+536	Personality Traits	-	-	-
+537	Personality Traits	-	-	-
+538	Personality Traits	-	-	-
+539	Personality Traits	-	-	-
+540	Personality Traits	-	-	-
+541	Personality Traits	-	-	-
+542	Personality Traits	-	-	-
+543	Personality Traits	-	-	-
+544	Personality Traits	-	-	-
+545	Personality Traits	-	-	-
+546	Personality Traits	-	-	-
+547	Personality Traits	-	-	-
+548	Personality Traits	-	-	-
+549	Personality Traits	-	-	-
+550	Personality Traits	-	-	-
+551	Personality Traits	-	-	-
+552	Personality Traits	-	-	-
+553	Personality Traits	-	-	-
+554	Personality Traits	-	-	-
+555	Personality Traits	-	-	-
+556	Personality Traits	-	-	-
+557	Personality Traits	-	-	-
+558	Personality Traits	-	-	-
+559	Personality Traits	-	-	-
+560	Personality Traits	-	-	-
+561	Personality Traits	-	-	-
+562	Personality Traits	-	-	-
+563	Personality Traits	-	-	-
+564	Personality Traits	-	-	-
+565	Personality Traits	-	-	-
+566	Personality Traits	-	-	-
+567	Personality Traits	-	-	-
