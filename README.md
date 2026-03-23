@@ -1,119 +1,162 @@
-<div align="center">
+<p align="center">
+  <img src="assets/screenshots/logo.png" width="150" alt="MMPI-ADHD Logo">
+</p>
 
-# 🧠 MMPI & ADHD Assessment System
+<h1 align="center">🧠 MMPI & ADHD Online Assessment System</h1>
 
-**Platform Web Psikotes Profesional** untuk penilaian MMPI (*Minnesota Multiphasic Personality Inventory*) dan ADHD (*Attention-Deficit/Hyperactivity Disorder*) dengan skoring otomatis, manajemen klien terpadu, dan pembuatan laporan instan.
+<p align="center">
+  <strong>Solusi Digital Terpadu untuk Pengukuran Psikologis Modern</strong>
+</p>
 
-[![Status](https://img.shields.io/badge/Status-Development-orange?style=for-the-badge)](#)
-[![Version](https://img.shields.io/badge/Version-1.0.0-success?style=for-the-badge)](#)
-[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](#)
-[![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](#)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap_5-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](#)
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.1+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+  <img src="https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge" alt="License">
+</p>
 
-<br/>
-
-</div>
-
----
-
-## 📖 Daftar Isi
-1. [Tentang Sistem](#-tentang-sistem)
-2. [Fitur Utama](#-fitur-utama)
-3. [Dokumentasi Antarmuka](#-dokumentasi-antarmuka)
-4. [Persyaratan Sistem](#-persyaratan-sistem)
-5. [Teknologi Pendukung](#️-teknologi-pendukung)
-6. [Struktur Direktori](#-struktur-direktori)
-7. [Panduan Instalasi](#-panduan-instalasi)
-8. [Keamanan Sistem](#-keamanan-sistem)
-9. [Lisensi & Kontak](#-lisensi--kontak)
+<p align="center">
+  <img src="assets/screenshots/banner.png" width="100%" alt="MMPI-ADHD Banner">
+</p>
 
 ---
 
-## 💡 Tentang Sistem
+## 🎬 Demo Animasi
 
-**MMPI & ADHD Assessment System** adalah solusi digital end-to-end yang dirancang khusus untuk psikolog, instansi pendidikan, dan klinik kesehatan mental. Sistem ini mendigitalisasi proses tes psikologi yang panjang dan rumit menjadi pengalaman yang *seamless* bagi peserta, sekaligus memberikan alat skoring otomatis yang akurat berdasarkan norma tes MMPI-2 dan instrumen ADHD bagi administrator.
+Berikut adalah cuplikan alur penggunaan sistem dari sisi klien:
 
----
-
-## 🌟 Fitur Utama
-
-### 🛡️ Portal Administrator (Super Admin & Psikolog)
-* 📊 **Dashboard Analitik Terpusat:** Memantau metrik kunci seperti total klien aktif, tes yang sedang berlangsung, pendapatan paket, dan grafik pendaftaran bulanan.
-* 👥 **Manajemen Klien Komprehensif:** * Verifikasi akun manual/otomatis.
-  * Reset password dan pemblokiran akun.
-  * Pantau riwayat tes spesifik per klien.
-* 📝 **Manajemen Bank Soal & Paket:** * *Builder* soal interaktif (Tambah/Edit/Hapus instrumen).
-  * Pembuatan paket tes kustom (misal: "Paket Rekrutmen BUMN") dengan pengaturan harga yang dinamis.
-* ⚙️ **Skoring Otomatis (Auto-Calculate):** Mesin skoring canggih yang langsung mengonversi jawaban mentah menjadi T-Score (untuk MMPI) dan mengkategorikan tingkat gejala (untuk ADHD).
-* 💳 **Sistem Pembayaran & Verifikasi:** Manajemen invoice, validasi bukti transfer manual, dan dukungan integrasi pembayaran instan (QRIS).
-* 🖨️ **Generate Laporan PDF:** Pembuatan laporan hasil psikogram yang rapi dan siap cetak dengan dukungan library *mPDF/TCPDF*.
-
-### 👤 Portal Klien (Peserta Tes)
-* 💻 **Test Engine Anti-Distraksi:** Antarmuka pengerjaan tes yang bersih, responsif (mendukung HP/Tablet/Desktop), dilengkapi *timer* (opsional), dan fitur *auto-save* jawaban.
-* 📈 **Riwayat & Akses Hasil:** Peserta dapat melihat histori tes yang pernah diambil dan mengunduh sertifikat/hasil interpretasi ringkas (jika diizinkan oleh admin).
-* 🛒 **Katalog Pembelian Paket:** Halaman etalase untuk memilih dan membeli paket tes secara mandiri.
-* 🎨 **Manajemen Profil & Avatar:** Pengaturan informasi dasar dan keamanan akun peserta.
+<p align="center">
+  <img src="assets/screenshots/demo_animation.webp" width="90%" alt="Demo Animasi Client">
+</p>
 
 ---
 
-## 📸 Dokumentasi Antarmuka
+## 🚀 Gambaran Umum
 
-### 💻 Panel Administrator
-| Dashboard Utama | Manajemen Klien |
-|:---:|:---:|
-| <img src="assets/screenshots/admin_dashboard.png" width="400" alt="Admin Dashboard"> | <img src="assets/screenshots/manage_clients.png" width="400" alt="Manage Clients"> |
-| **Kelola Bank Soal** | **Laporan Hasil Tes** |
-| <img src="assets/screenshots/manage_questions.png" width="400" alt="Manage Questions"> | <img src="assets/screenshots/manage_results.png" width="400" alt="Manage Results"> |
-
-### 👥 Portal Klien
-| Dashboard Peserta | Katalog Paket Tes |
-|:---:|:---:|
-| <img src="assets/screenshots/client_dashboard.png" width="400" alt="Client Dashboard"> | <img src="assets/screenshots/choose_package.png" width="400" alt="Choose Package"> |
-| **Riwayat Pemeriksaan** | **Paket Aktif Saya** |
-| <img src="assets/screenshots/test_history.png" width="400" alt="Test History"> | <img src="assets/screenshots/active_packages.png" width="400" alt="Active Packages"> |
+**Sistem Penilaian MMPI & ADHD** adalah platform web komprehensif yang dirancang untuk membantu psikolog dan lembaga kesehatan dalam mengelola tes kepribadian MMPI (Minnesota Multiphasic Personality Inventory) dan screening ADHD. Sistem ini mengotomatiskan seluruh proses mulai dari registrasi, pembayaran, pengambilan tes, hingga kalkulasi skor berdasarkan norma psikologis yang berlaku.
 
 ---
 
-## 🖥️ Persyaratan Sistem
+## ✨ Fitur Unggulan
 
-Untuk menjalankan sistem ini secara optimal, server/hosting Anda memerlukan:
-- **Sistem Operasi:** Linux (Direkomendasikan) / Windows
-- **Web Server:** Apache 2.4+ atau Nginx
-- **PHP Version:** PHP 7.4.x hingga PHP 8.2.x
-- **Database:** MySQL 5.7+ atau MariaDB 10.3+
-- **PHP Extensions Wajib:**
-  - `pdo_mysql` (Untuk koneksi database)
-  - `gd` atau `imagick` (Untuk manipulasi gambar/avatar)
-  - `mbstring` (Untuk rendering PDF)
-  - `json` & `cURL` (Untuk API/Payment Gateway)
+### 🔐 Multi-Role Access Control
+- **Administrator**: Memiliki kendali penuh atas sistem, bank soal, manajemen klien, verifikasi pembayaran, dan audit skoring.
+- **Client (User)**: Memberikan pengalaman tes yang intuitif, pembelian paket mandiri, dan akses ke hasil tes secara personal.
 
----
+### 📊 Automated Scoring Engine
+- **Skoring MMPI-2**: Perhitungan otomatis untuk Skala Validitas (L, F, K) dan Skala Klinis Dasar (Hs, D, Hy, Pd, Mf, Pa, Pt, Sc, Ma, Si).
+- **Normative Data**: Implementasi data norma berdasarkan gender untuk hasil yang akurat.
+- **ADHD Screening**: Penilaian otomatis berdasarkan subskala Inattention, Hyperactivity, dan Impulsivity.
 
-## 🛠️ Teknologi Pendukung
-
-* **Backend:** PHP (Native) dengan pattern arsitektur terstruktur.
-* **Database:** MySQL (Eksekusi query diamankan dengan sistem PDO / Prepared Statements).
-* **Frontend:** HTML5, CSS3, Bootstrap 5 Framework.
-* **JavaScript:** Vanilla JS, Fetch API / AJAX (Pengerjaan tes tanpa *reload* halaman).
-* **Lainnya:** FontAwesome (Ikon), SweetAlert2 (Notifikasi UI).
+### 💳 Management & Integration
+- **Payment Gateway**: Dukungan verifikasi manual (Upload Bukti) dan integrasi sistem pembayaran otomatis.
+- **Reporting**: Penjanaan laporan hasil tes dalam format PDF yang rapi dan profesional.
+- **Support System**: Layanan bantuan melalui sistem tiket internal untuk memudahkan komunikasi admin-klien.
 
 ---
 
-## 📂 Struktur Direktori
+## 🏗️ Arsitektur Proyek
+
+Proyek ini dibangun dengan struktur yang modular untuk memudahkan pemeliharaan:
 
 ```text
 mmpi-adhd-system/
-├── admin/                  # Modul dan halaman khusus Administrator
-├── assets/                 # File statis (CSS, JS, Images, Uploads)
-│   ├── css/
-│   ├── js/
-│   └── screenshots/        # Gambar dokumentasi README
-├── client/                 # Modul dan halaman untuk Peserta/Klien
-├── database/               # File skema SQL (.sql) untuk instalasi
-├── includes/               # File krusial (Koneksi, Fungsi Global, Helpers)
-│   ├── config.php          # Konfigurasi Kredensial Database
-│   └── functions.php       # Kumpulan fungsi logika utama
-├── test_engine/            # Modul inti untuk eksekusi dan skoring tes
-├── index.php               # Halaman utama (Landing Page)
-├── login.php               # Otentikasi pengguna
-└── README.md               # Dokumentasi sistem
+├── admin/            # Portal Administrator
+├── client/           # Portal Klien/User
+├── api/              # API Endpoint untuk integrasi Frontend
+├── includes/         # Konfigurasi, Database Class, & Global Helpers
+├── assets/           # Statik Files (CSS, JS, Images, Uploads)
+├── database/         # Schema SQL & Migration Files
+└── tools/            # Skrip utilitas sistem
+```
+
+### 🧬 Skema Database (ERD)
+
+```mermaid
+erDiagram
+    USERS ||--o{ ORDERS : "placed"
+    USERS ||--o{ TEST_SESSIONS : "starts"
+    USERS ||--o{ ACTIVITY_LOGS : "logs"
+    PACKAGES ||--o{ ORDERS : "contained in"
+    ORDERS ||--o{ TEST_SESSIONS : "links to"
+    TEST_SESSIONS ||--|| TEST_RESULTS : "produces"
+    USERS {
+        int id PK
+        string username
+        string role
+        string email
+    }
+    PACKAGES {
+        int id PK
+        string package_code
+        decimal price
+    }
+    TEST_SESSIONS {
+        int id PK
+        string session_code
+        json mmpi_answers
+        string status
+    }
+    TEST_RESULTS {
+        int id PK
+        json validity_scores
+        json basic_scales
+        text interpretation
+    }
+```
+
+---
+
+## 📸 Galeri Dokumentasi
+
+<details>
+<summary><b>🖼️ Klik untuk melihat Screenshot Selengkapnya</b></summary>
+
+### 💻 Dashboard Administrator
+![Admin Dashboard](assets/screenshots/admin_dashboard.png)
+
+### 👥 Manajemen Klien & Bank Soal
+| Klien | Bank Soal |
+|:---:|:---:|
+| ![Manage Clients](assets/screenshots/manage_clients.png) | ![Manage Questions](assets/screenshots/manage_questions.png) |
+
+### 👤 Pengalaman Klien
+| Dashboard User | Pilih Paket |
+|:---:|:---:|
+| ![Client Dashboard](assets/screenshots/client_dashboard.png) | ![Choose Package](assets/screenshots/choose_package.png) |
+
+</details>
+
+---
+
+## 🛠️ Instalasi & Konfigurasi
+
+### Kebutuhan Sistem
+- **Server**: Apache/Nginx
+- **PHP**: Versi 8.1 ke atas
+- **Database**: MySQL 5.7+ / MariaDB 10.4+
+- **Extensions**: `PDO`, `openssl`, `mbstring`, `json`, `curl`
+
+### Langkah-langkah
+1. **Prepare Database**: Import `database/schema.sql` ke MySQL Anda.
+2. **Config File**: Edit `includes/config.php` dan sesuaikan kredensial berikut:
+   ```php
+   define('DB_HOST', 'localhost');
+   define('DB_USER', 'root');
+   define('DB_PASS', '');
+   define('DB_NAME', 'mmpi_adhd_db');
+   define('BASE_URL', 'http://your-domain.com');
+   ```
+3. **Permissions**: Pastikan folder `assets/uploads/` memiliki izin tulis (writable).
+
+---
+
+## 👨‍💻 Kontribusi
+Proyek ini dikembangkan secara eksklusif. Untuk pertanyaan lebih lanjut, hubungi pengembang utama di:
+- **GitHub**: [@ilhammu29](https://github.com/ilhammu29)
+
+---
+
+<p align="center">
+  <i>Developed with ❤️ for Psychology Professionals.</i>
+</p>
